@@ -8,7 +8,7 @@ on:
 jobs:
   run-app:
     runs-on: ubuntu-latest
-    environment: production 
+    environment: test
 
     defaults:
       run:
@@ -46,5 +46,5 @@ jobs:
         MODEL_1: ${{ secrets.MODEL_1 }}
         MODEL_2: ${{ secrets.MODEL_2 }}
         RAW_TXT_PROMPT: ${{ secrets.RAW_TXT_PROMPT }}
-        APP_ENV: "production"
+        APP_ENV: "test"
       run: python app.py  
