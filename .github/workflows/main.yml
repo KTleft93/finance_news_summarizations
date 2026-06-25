@@ -46,5 +46,5 @@ jobs:
         MODEL_1: ${{ secrets.MODEL_1 }}
         MODEL_2: ${{ secrets.MODEL_2 }}
         RAW_TXT_PROMPT: ${{ secrets.RAW_TXT_PROMPT }}
-        APP_ENV: "test"
+        APP_ENV: "production"
       run: python app.py  
