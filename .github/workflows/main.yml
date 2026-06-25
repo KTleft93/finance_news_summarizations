@@ -1,16 +1,18 @@
 name: Run Python App with Playwright Daily
 
 on:
-  # Triggers the workflow every day at 00:00 UTC (Adjust time as needed)
   schedule:
-    - cron: '0 14 * * *'
-  
-  # Keeps the manual trigger button active so you can run it whenever you want
+    - cron: '0 14 * * *' # Runs at 2:00 PM UTC
   workflow_dispatch:
 
 jobs:
   run-app:
     runs-on: ubuntu-latest
+    environment: production 
+
+    defaults:
+      run:
+        working-directory: ./project
 
     steps:
     - name: Check out repository code
@@ -20,6 +22,8 @@ jobs:
       uses: actions/setup-python@v5
       with:
         python-version: '3.11'
+      
+        cache-dependency-path: 'project/requirements.txt'
         cache: 'pip'
 
     - name: Install dependencies
@@ -43,5 +47,4 @@ jobs:
         MODEL_2: ${{ secrets.MODEL_2 }}
         RAW_TXT_PROMPT: ${{ secrets.RAW_TXT_PROMPT }}
         APP_ENV: "test"
-        
-      run: python app.py
+      run: python app.py  
