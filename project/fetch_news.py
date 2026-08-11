@@ -17,7 +17,7 @@ def get_finlight_news(query="SPY", pageSize=10):
         params = GetArticlesParams(
             query=query,
             excludeSources=["www.wsj.com", "www.bloomberg.com", "www.ft.com", "www.barrons.com", "www.benzinga.com",
-                            "www.bbc.com", "www.reuters.com", "www.seekingalpha.com"],
+                            "www.bbc.com", "www.reuters.com", "www.seekingalpha.com","www.bbc.co.uk"],
             pageSize=pageSize
         )
         articles = client.articles.fetch_articles(params=params)
